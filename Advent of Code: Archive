@@ -1,1 +1,36 @@
+01/12/2023: Trebuchet?!
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
 
+namespace Advent_of_Code
+{
+    internal class Program
+    {
+        static void Main(string[] args) //U:\\AoC012023CalibrationDocument.txt
+        {
+            string caliLine;
+            bool cont = true;
+            string duoInt = "";
+            StreamReader calDoc = new StreamReader("U:\\AoC012023CalibrationDocument.txt");
+            while (cont == true)
+            {
+                caliLine = calDoc.ReadLine();
+                foreach (char stepChar in caliLine)
+                {
+                    if (stepChar == '1' || stepChar == '2' || stepChar == '3' || stepChar == '4' || stepChar == '5' || stepChar == '6' || stepChar == '7' || stepChar == '8' || stepChar == '9')
+                    {
+                        duoInt += stepChar;
+                    }
+                }
+                cont = false;
+            }
+
+        }
+    }
+}
+//reverse string, iterate and repeat the if statement above
+//if 1 char, append that same char to the string (7 -> 77)
