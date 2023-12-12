@@ -1,0 +1,117 @@
+Problem #1: Multiples of 3 or 5
+Solution: 233168
+        static void Main(string[] args)
+        {
+            int result = 0;
+            int count;
+            for (count = 3; count < 1000; count++)
+            {
+                if (count % 3 == 0 || count % 5 == 0)
+                {
+                    result += count;
+                }
+            }
+            Console.WriteLine(result);
+        }
+
+Problem #2: Even Fibonacci Numbers
+Solution: 4613732
+
+Problem #3: Largest Prime Factor
+Solution: 6857
+
+Problem #4: Largest Palindrome Product
+Solution: 906609
+
+Problem #5: Smallest Multiple
+Solution: 
+
+Problem #6: Square Sum Difference
+Solution: 25164150
+        static void Main(string[] args)
+        {
+            int count;
+            double sumOfSquares = 0;
+            double squareOfSums = 0;
+            for (count = 1; count < 101; count++)
+            {
+                sumOfSquares += Math.Pow(count, 2); //works fine
+                squareOfSums += count;
+            }
+            squareOfSums = Math.Pow(squareOfSums, 2);
+            Console.WriteLine(squareOfSums - sumOfSquares);
+        }
+
+Problem #7: 10001st Prime
+Solution: 104743
+        static void Main(string[] args)
+        {
+            bool prime;
+            int count = 0;
+            int numPrime = 0;
+            while (numPrime != 10001) //iterate while counter of primes found != 10001
+            {
+                prime = PrimeTool.IsPrime(count); //calls IsPrime to confirm whether or not count is prime
+                if (prime) //if count is prime, run code
+                {
+                    numPrime++; //increase counter of primes
+                    Console.WriteLine("numPrime: " + numPrime);
+                }
+                Console.WriteLine("count: " + count); //outputs number checked, and answer
+                count++; //iterate to check next number
+            }
+        }
+
+Problem #10: Summation of Primes
+Solution: 142913828922
+        static void Main(string[] args)
+        {
+            int count;
+            long primeSum = 0;
+            for (count = 2; count < 2000000; count++)
+            {
+                bool prime = PrimeTool.IsPrime(count);
+                if (prime)
+                {
+                    Console.WriteLine("Prime found: " + count);
+                    primeSum += count;
+                }
+            }
+            Console.WriteLine("Sum of primes below 2000000: " + primeSum);
+        }
+        //got 1179908154, it is not 1179908154
+        //Decided to use long instead of int for primeSum
+        //got 142913828922, is is 142913828922
+
+Problem #22: Names Scores
+Solution: 871198282
+        static void Main(string[] args) //U:/Five-ThousandFirstNames.txt
+        {
+            StreamReader file = new StreamReader("U:/Five-ThousandFirstNames.txt"); //specified file path here
+            string csv = file.ReadToEnd(); //read text file here
+            int alphPosition;
+            int letterValue;
+            int nameValue = 0;
+            int nameScore = 0;
+            int totalScore = 0;
+
+            //now have to turn variable 'csv' into names separated only by commas
+            csv = csv.Replace('"', ' '); //replaces speech marks with spaces
+            csv = csv.Replace(" ", ""); //replaces the spaces with null strings (convoluted, i know)
+            string[] names = csv.Split(','); //splits values in 'csv' at their commas, and assigns each value to an array
+            Array.Sort(names); //alphabetises the array
+
+            foreach(string name in names)
+            {
+                alphPosition = Array.IndexOf(names, name) + 1; //finds alphabetical position each 'name' in 'names'
+                foreach (char letter in name) 
+                {
+                    letterValue = (Convert.ToInt32(letter) - 64); //converts ASCII of each letter to its alphabetical value
+                    nameValue += letterValue; //sum of alphabetical values = name value
+                }
+                nameScore = nameValue * alphPosition; //multiply each name's value and alphabetical position for its score
+                nameValue = 0;
+                totalScore += nameScore; //sum of all name scores is the total name score
+            }
+            Console.WriteLine(totalScore); //the total name score is the answer to the question
+        }
