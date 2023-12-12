@@ -24,7 +24,29 @@ Problem #4: Largest Palindrome Product
 Solution: 906609
 
 Problem #5: Smallest Multiple
-Solution: 
+Solution: 232792560
+        static void Main(string[] args)
+        {
+            int testNum = 2520;
+            bool fullyDivisible = false;
+            int modulo = 20;
+            while (fullyDivisible == false)
+            {
+                if (testNum % modulo == 0)
+                {
+                    modulo--;
+                    if (modulo == 1)
+                    {
+                        Console.WriteLine(testNum + " is divisible");
+                    }
+                }
+                else
+                {
+                    testNum++;
+                    modulo = 20;
+                }
+            }
+        }
 
 Problem #6: Square Sum Difference
 Solution: 25164150
