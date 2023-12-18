@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Project_Euler
 {
@@ -10,8 +11,12 @@ namespace Project_Euler
     {
         static void Main(string[] args) //U:\\20x20GridOf2DigitNumbers.txt
         {
-
+            StreamReader grid = new StreamReader("U:\\20x20GridOf2DigitNumbers.txt");
+            Console.WriteLine(grid.ReadToEnd());
         }
     }
 }
 //to find diagonally adjecent numbers from a given number in the 20x20 grid, loop forward by 20 numbers
+//start at and save the first number, loop forward by 20 to get next
+//repeat two more times, multiply numbers and save.
+//repeat all above, then compare the two products. keep largest, repeat.
