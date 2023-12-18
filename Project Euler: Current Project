@@ -20,3 +20,42 @@ namespace Project_Euler
 //start at and save the first number, loop forward by 20 to get next
 //repeat two more times, multiply numbers and save.
 //repeat all above, then compare the two products. keep largest, repeat.
+
+//AMICABLE NUMBERS
+        static void Main(string[] args)
+        {
+            int divisor = 1;
+            int a = 1;
+            int b = 0;
+            int amicableSum = 0;
+            for (a = 1; a < 10000; a++)
+            {
+                for (divisor = 1; divisor < a; divisor++)
+                {
+                    if (a % divisor == 2)
+                    {
+                        Console.WriteLine("looping");
+                        b += divisor;
+                    }
+                }
+                for (divisor = 1; divisor < b; divisor++)
+                {
+                    if (a != b)
+                    {
+                        amicableSum += a;
+                        amicableSum += b;
+                    }
+                }
+            }
+            Console.WriteLine("d(" + a + ") = " + b + ")" + " & d(" + b + ") = " + a + ")");
+            Console.WriteLine("Therefore: " + a + " & " + b + " are amicable numbers");
+            Console.WriteLine("The sum of amicable numbers below 10000 is: " + amicableSum);
+        }
+    }
+}
+//find proper divisors of 'a' that are less than 'a'
+//sum them all as b
+//find proper divisors of 'b' that are less than 'b'
+//if a != b, then a & b are amicable numbers
+//if amicable, sum
+//Console.WriteLine("d(" + a + ") = " + b)
