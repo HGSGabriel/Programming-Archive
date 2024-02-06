@@ -1,0 +1,20 @@
+namespace Denary_to_Binary_Converter
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a number in denary");
+            int denary = Convert.ToInt32(Console.ReadLine());
+            while (denary != 0)
+            {
+
+            }
+        }
+    }
+}
+//while denary != 0
+//do denary / 2
+//if integer, add 0 to stack
+//if decimal, add 1 to stack
+//pop elements of stack into (string, then into) console
