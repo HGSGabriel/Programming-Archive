@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Denary_to_Binary_Converter
 {
     internal class Program
@@ -6,10 +12,28 @@ namespace Denary_to_Binary_Converter
         {
             Console.WriteLine("Enter a number in denary");
             int denary = Convert.ToInt32(Console.ReadLine());
-            while (denary != 0)
+            int remainder = 0;
+            int tempOut = denary;
+            var inverse = new Stack<int>();
+            while (tempOut != 0 & remainder > 0)
             {
-
+                remainder = tempOut % 2; //returns modulus portion
+                tempOut /= 2; //returns integer portion
+                if (remainder == 0)
+                {
+                    inverse.Push(0);
+                }
+                else if (remainder > 0)
+                {
+                    inverse.Push(1);
+                }
             }
+            Console.WriteLine("");
+            foreach(int i in inverse)
+            {
+                Console.Write(i);
+            }
+            Console.WriteLine("");
         }
     }
 }
