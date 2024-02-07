@@ -45,4 +45,75 @@ namespace Denary_to_Binary_Converter
 }
 
 //FUNKY FUNKY
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace Denary_to_Binary_Converter
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool hitFloor = false;
+            int remainder = 0;
+            var inverse = new Stack<int>();
+            double denary = 0;
+
+            char operation = ' ';
+            char polarity = ' ';
+
+            Console.WriteLine("Choose from the options below:\n [1] Integer Denary to Binary\n [2] Integer Binary to Denary\n [3] Decimal Denary to Binary\n [4] Decimal Denary to Binary");
+            operation = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("\nChoose from the options below:\n [p] Positive Value\n [n] Negative Value");
+            polarity = Convert.ToChar(Console.ReadLine());
+
+            if (operation == '1' & polarity == 'p')
+            {
+                Console.Clear();
+                IDtoIBp(denary, hitFloor, remainder, inverse);
+            }
+            else if (operation == '2' & polarity == 'p')
+            {
+                IBtoIDp(denary, hitFloor, remainder, inverse);
+            }
+
+
+
+        }
+        static void IDtoIBp(double denary, bool hitFloor, int remainder, Stack<int> inverse)
+        {
+            Console.Write("Input a number in denary: ");
+            denary = Convert.ToDouble(Console.ReadLine());
+            while (hitFloor == false)
+            {
+                remainder = Convert.ToInt16(denary % 2);
+                if (remainder > 0)
+                {
+                    inverse.Push(1);
+                }
+                else
+                {
+                    inverse.Push(0);
+                }
+                denary = Math.Floor(denary / 2);
+                if (denary == 0)
+                {
+                    hitFloor = true;
+                }
+            }
+            Console.Write("Your number in binary is: ");
+            foreach (int i in inverse)
+            {
+                Console.Write(i);
+            }
+            Console.WriteLine("");
+        }
+        static void IBtoIDp(double denary, bool hitFloor, int remainder, Stack<int> inverse)
+        {
+
+        }
+    }
+}
