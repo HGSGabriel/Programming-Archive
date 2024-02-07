@@ -11,10 +11,11 @@ namespace Denary_to_Binary_Converter
         static void Main(string[] args)
         {
             bool hitFloor = false;
-            Console.Write("Input a number in denary: ");
-            double denary = Convert.ToDouble(Console.ReadLine());
             int remainder = 0;
             var inverse = new Stack<int>();
+            double denary = 0;
+            Console.Write("Input a number in denary: ");
+            denary = Convert.ToDouble(Console.ReadLine());
             while (hitFloor == false)
             {
                 remainder = Convert.ToInt16(denary % 2);
