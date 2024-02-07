@@ -10,26 +10,30 @@ namespace Denary_to_Binary_Converter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number in denary");
-            int denary = Convert.ToInt32(Console.ReadLine());
+            bool hitFloor = false;
+            Console.Write("Input a number in denary: ");
+            double denary = Convert.ToDouble(Console.ReadLine());
             int remainder = 0;
-            int tempOut = denary;
             var inverse = new Stack<int>();
-            while (tempOut != 0 & remainder > 0)
+            while (hitFloor == false)
             {
-                remainder = tempOut % 2; //returns modulus portion
-                tempOut /= 2; //returns integer portion
-                if (remainder == 0)
-                {
-                    inverse.Push(0);
-                }
-                else if (remainder > 0)
+                remainder = Convert.ToInt16(denary % 2);
+                if (remainder > 0)
                 {
                     inverse.Push(1);
                 }
+                else
+                {
+                    inverse.Push(0);
+                }
+                denary = Math.Floor(denary / 2);
+                if (denary == 0)
+                {
+                    hitFloor = true;
+                }
             }
-            Console.WriteLine("");
-            foreach(int i in inverse)
+            Console.Write("Your number in binary is: ");
+            foreach (int i in inverse)
             {
                 Console.Write(i);
             }
@@ -37,8 +41,3 @@ namespace Denary_to_Binary_Converter
         }
     }
 }
-//while denary != 0
-//do denary / 2
-//if integer, add 0 to stack
-//if decimal, add 1 to stack
-//pop elements of stack into (string, then into) console
