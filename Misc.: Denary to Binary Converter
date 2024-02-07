@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//MOST RECENT WORKING VERSION
 namespace Denary_to_Binary_Converter
 {
     internal class Program
@@ -42,3 +43,6 @@ namespace Denary_to_Binary_Converter
         }
     }
 }
+
+//FUNKY FUNKY
+
