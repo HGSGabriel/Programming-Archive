@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ISBN_Check_Digit_Algorithm
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Input a valid ISBN 13 number");
+            string ISBN13 = Console.ReadLine();
+            int checkDigit = Convert.ToInt32(ISBN13); //obviously not just ISBN13
+        }
+    }
+}
+//this is intended to work for ISBN 13 and ISBN 10
+
+//ask for ISPN 13 num
+//store final number of input as checkDigit
+//foreach char in the input, multiply by an alternating sequence of 1 then 3
+//sum those products, then MOD that sum by 10
+//Subtract result from 10, check whether the final product is = to checkDigit
+//inform user, potentially ask them to try again.
